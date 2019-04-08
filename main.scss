@@ -1,0 +1,243 @@
+@import "_reset.scss";
+body {
+  background: black;
+}
+@mixin numbering($from_top, $from_left) {
+  top: $from_top;
+  left: $from_left;
+  position: absolute;
+  color: #ff6f61;
+  font-size: 40px;
+}
+
+@mixin neddle($width, $height, $top, $left) {
+  position: relative;
+  background: #b5bab6;
+  transform-origin: 100% 100%;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+@keyframes animating {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animationn {
+  50% {
+    top: 90px;
+  }
+  100% {
+    top: 70px;
+  }
+}
+
+@keyframes animationn2 {
+  10% {
+    top: 5px;
+  }
+  50% {
+    top: 16px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+.animation-spining {
+  animation: animationn 1s;
+}
+
+.animation-spining2 {
+  animation: animationn2 ease-in 0.5s;
+}
+.container {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  height: 98vh;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 2vh;
+  .clock-container {
+    position: relative;
+
+    .twelve {
+      @include numbering(110px, 305px);
+    }
+    .three {
+      @include numbering(260px, 490px);
+    }
+    .six {
+      @include numbering(450px, 328px);
+    }
+    .nine {
+      @include numbering(275px, 150px);
+    }
+    .design {
+      position: relative;
+      left: 275px;
+      width: 100px;
+      height: 80px;
+      margin-bottom: 8px;
+      background: #ccced1;
+      font-family: "El Messiri", sans-serif;
+      clip-path: polygon(
+        0% 15%,
+        0 0,
+        15% 0%,
+        85% 0%,
+        100% 0,
+        100% 15%,
+        100% 75%,
+        67% 76%,
+        67% 100%,
+        32% 100%,
+        32% 74%,
+        0 74%
+      );
+    }
+
+    .button {
+      background: #ccced1;
+      color: #353638;
+      width: fit-content;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0px auto !important;
+      cursor: pointer;
+      padding-top: 10px;
+    }
+    .design2 {
+      position: absolute;
+      transform: rotate(-30deg);
+      font-family: "El Messiri", sans-serif;
+      left: 150px;
+      width: 80px;
+      height: 35px;
+      top: 70px;
+      background: #ccced1;
+    }
+    .clock {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin-left: 120px;
+      border: 10px #ccced1 solid;
+      border-radius: 50%;
+      .second {
+        @include neddle(1px, 170px, 20px, 201px);
+      }
+      .animation-second {
+        animation: animating 60s linear infinite;
+      }
+
+      .animation-minute {
+        animation: animating 3600s linear infinite;
+      }
+      .animation-hour {
+        animation: animating 216000s linear infinite;
+      }
+      .minute {
+        @include neddle(3px, 130px, -110px, 201px);
+      }
+      .hour {
+        @include neddle(5px, 100px, -210px, 200px);
+      }
+      .circle {
+        @include neddle(25px, 25px, -230px, 190px);
+        border-radius: 50%;
+      }
+      .counter {
+        position: relative;
+        font-family: "Poiret One", cursive;
+        left: 100px;
+        top: -160px;
+        font-size: 40px;
+      }
+    }
+  }
+  .empty {
+    flex-grow: 0;
+  }
+  .lap-list {
+    border: 1px white solid;
+    border-radius: 20px;
+    position: relative;
+    height: fit-content;
+    font-family: "El Messiri", sans-serif;
+    max-height: 60%;
+    max-width: 300px;
+    margin-right: 200px;
+    top: 70px;
+    overflow: hidden;
+    animation: flexGrow 0.1s ease forwards;
+
+    > p {
+      padding: 20px;
+      font-size: 20px;
+      color: #b5bab6;
+      font-weight: bolder;
+      border-bottom: 1px white solid;
+      > i {
+        border-radius: 50%;
+        padding: 7px;
+        background: linear-gradient(white, silver);
+        margin-left: 130px;
+        font-size: 14px;
+        color: #ff6f61;
+      }
+    }
+    > div {
+      height: fit-content;
+      max-height: 400px;
+      overflow-y: scroll;
+      > ul {
+        padding: 10px;
+        color: #b5bab6;
+        > li {
+          height: 25px;
+          font-size: 18px;
+          width: fit-content;
+          white-space: pre;
+          padding: 10px;
+          > p {
+            display: none;
+          }
+          &:hover > p {
+            display: inline;
+            > i {
+              font-size: 14px;
+              padding-top: 0;
+              margin-top: 0;
+              color: #ff6f61;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes flexGrow {
+  to {
+    flex: 1;
+  }
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: silver;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff6f61;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6f61;
+}

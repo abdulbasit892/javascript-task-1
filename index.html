@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>STOPWATCH</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=El+Messiri|Poiret+One"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock-container">
+        <div class="numbers">
+          <div class="twelve">12</div>
+          <div class="three">3</div>
+          <div class="six">6</div>
+          <div class="nine">9</div>
+        </div>
+        <div class="design" id="design">
+          <div class="button" id="start">START</div>
+        </div>
+        <div class="design2" id="design2">
+          <div class="button" id="lap">LAP</div>
+        </div>
+        <div class="clock">
+          <div class="second " id="second"></div>
+          <div class="minute" id="minute"></div>
+          <div class="hour" id="hour"></div>
+          <div class="circle"></div>
+          <div class="counter" id="counters">
+            <label id="hours">00</label>:<label id="minutes">00</label>:<label
+              id="seconds"
+              >00</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="empty"></div>
+      <div class="lap-list">
+        <p>LAP LIST <i id="delete-lap-list" class="fas fa-trash-alt"></i></p>
+        <div>
+          <ul id="lap-ul"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
